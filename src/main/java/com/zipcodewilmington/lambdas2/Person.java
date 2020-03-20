@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.time.Period;
 import java.util.List;
 
-public class Person implements CheckPerson {
+public class Person {
 
     public enum Sex {
         MALE, FEMALE
@@ -22,6 +22,22 @@ public class Person implements CheckPerson {
         this.birthday = birthday;
         this.gender = gender;
         this.emailAddress = email;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public LocalDate getBirthday() {
+        return birthday;
+    }
+
+    public Sex getGender() {
+        return gender;
+    }
+
+    public String getEmailAddress() {
+        return emailAddress;
     }
 
     public int getAge() {
@@ -57,10 +73,5 @@ public class Person implements CheckPerson {
                 p.printPerson();
             }
         }
-    }
-
-    @Override
-    public boolean test(Person p) {
-        return p.gender.equals(Sex.FEMALE);
     }
 }

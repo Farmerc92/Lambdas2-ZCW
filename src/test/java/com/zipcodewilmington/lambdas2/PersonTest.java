@@ -78,6 +78,6 @@ public class PersonTest {
     @Test
     public void testSearchCriteriaCodeLocalClass(){
 
-        Person.printPersons(persons, new Person());
+        Person.printPersons(persons, new CheckFemale());
     }
 }
