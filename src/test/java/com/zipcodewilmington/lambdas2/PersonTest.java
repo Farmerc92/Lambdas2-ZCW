@@ -75,5 +75,9 @@ public class PersonTest {
         Person.printPersonsWithinAgeRange(persons, 24, 28);
     }
 
+    @Test
+    public void testSearchCriteriaCodeLocalClass(){
 
+        Person.printPersons(persons, new Person());
+    }
 }

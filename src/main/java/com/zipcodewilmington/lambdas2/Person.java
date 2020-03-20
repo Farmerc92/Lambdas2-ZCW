@@ -15,6 +15,8 @@ public class Person implements CheckPerson {
     private Sex gender;
     private String emailAddress;
 
+    public Person(){}
+
     public Person(String name, LocalDate birthday, Sex gender, String email){
         this.name = name;
         this.birthday = birthday;
@@ -59,6 +61,6 @@ public class Person implements CheckPerson {
 
     @Override
     public boolean test(Person p) {
-        return true;
+        return p.gender.equals(Sex.FEMALE);
     }
 }
