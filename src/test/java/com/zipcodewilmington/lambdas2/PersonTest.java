@@ -75,5 +75,8 @@ public class PersonTest {
         Person.printPersonsWithinAgeRange(persons, 24, 28);
     }
 
-
+    @Test
+    public void testSearchCriteriaAnonymousClass(){
+        Person.printPersons(persons, new CheckFemale());
+    }
 }
