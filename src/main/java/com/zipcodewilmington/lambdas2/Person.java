@@ -2,9 +2,16 @@ package com.zipcodewilmington.lambdas2;
 
 import java.time.LocalDate;
 import java.time.Period;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
-public class Person implements CheckPerson {
+public class Person implements CheckPerson{
+
+    @Override
+    public boolean test(Person p) {
+        return false;
+    }
 
     public enum Sex {
         MALE, FEMALE
@@ -20,6 +27,22 @@ public class Person implements CheckPerson {
         this.birthday = birthday;
         this.gender = gender;
         this.emailAddress = email;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public LocalDate getBirthday() {
+        return birthday;
+    }
+
+    public Sex getGender() {
+        return gender;
+    }
+
+    public String getEmailAddress() {
+        return emailAddress;
     }
 
     public int getAge() {
@@ -56,9 +79,16 @@ public class Person implements CheckPerson {
             }
         }
     }
-
-    @Override
-    public boolean test(Person p) {
-        return true;
+    public static void main(String... args){
+        Person giles = new Person("Giles", LocalDate.of(1995, 5, 15),
+                Person.Sex.MALE, "Giles@email.com");
+        Person chris = new Person("Chris", LocalDate.of(1992, 2, 6),
+                Person.Sex.MALE, "Chris@email.com");
+        Person jimmy = new Person("Jimmy", LocalDate.of(1999, 3, 2),
+                Person.Sex.MALE, "Jimmy@email.com");
+        Person nicole = new Person("Nicole", LocalDate.of(1990, 2, 18),
+                Person.Sex.FEMALE, "Nicole@gmail.com");
+        List<Person> persons = new ArrayList<>(Arrays.asList(giles, chris, jimmy, nicole));
+        printPersons(persons, person -> person.getGender().equals(Sex.FEMALE));
     }
 }
